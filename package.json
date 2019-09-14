@@ -10,7 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.1.0",
-    "faunadb": "^2.8.0"
+    "faunadb": "^2.8.0",
+    "netlify-lambda": "^1.6.3",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
   }
 }

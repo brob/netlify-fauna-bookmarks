@@ -15,11 +15,11 @@
     </section>
 
     <ul>
-    {% assign links = bookmarks | reverse %}
-    {% for link in links %}
-    {% if link.url and link.pagetitle %}
+    {% for link in bookmarks | reverse %}
+    {% if link.url and link.pageTitle %}
         <li>
-            <h2><a href="{{link.url}}">{{link.pagetitle}}</a></h2>
+            <h2><a href="{{link.url}}">{{link.pageTitle}}</a></h2>
+            {{ link.time }}
             {% if link.description != "" %}
                 <p>{{link.description}}</p>
             {% endif %}
