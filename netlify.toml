@@ -1,6 +1,6 @@
 # example netlify.toml
 [build]
-  command = "npx eleventy --serve"
+  command = "npm run build"
   functions = "functions"
   publish = "app"
 
