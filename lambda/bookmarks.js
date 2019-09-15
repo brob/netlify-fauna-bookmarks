@@ -20,7 +20,6 @@ async function getDetails(url) {
   return data
 }
 
-
 async function saveBookmark(details) {
   const data = {
     data: details
@@ -47,7 +46,6 @@ async function saveBookmark(details) {
 exports.handler = async function(event, context) {
   try {
     const url = event.queryStringParameters.url;
-
     const details = await getDetails(url);
     
     const savedResponse = saveBookmark({url, ...details})
