@@ -3,10 +3,10 @@ const cheerio = require('cheerio');
 var faunadb = require('faunadb'),
     q = faunadb.query;
 
-
 var adminClient = new faunadb.Client({
     secret: process.env.FAUNADB_SERVER_SECRET
 });
+
 async function getDetails(url) {
   const data = rp(url).then(function(htmlString) {
     const $ = cheerio.load(htmlString);
@@ -17,10 +17,6 @@ async function getDetails(url) {
       description: description
     };
   });
-
-  
-
-
   return data
 }
 
@@ -57,7 +53,7 @@ exports.handler = async function(event, context) {
 
     console.log(saved);
 
-    return { statusCode: 200, body: "Sucess" }
+    return { statusCode: 200, body: JSON.stringify(saved) }
   } catch (err) {
     return { statusCode: 500, body: "lambda failure code!" };
   }
