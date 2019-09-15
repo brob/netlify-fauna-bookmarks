@@ -6,7 +6,6 @@ var adminClient = new faunadb.Client({
 });
 
 function getBookmarks() {
-
     return adminClient.query(q.Paginate(q.Match(q.Ref("indexes/all_links"))))
     .then((response) => {
         const linkRefs = response.data;

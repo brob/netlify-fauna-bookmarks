@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+    <section class="intro">
+    <h1>Bookmarks by <a href="https://twitter.com/brob/">@Brob</a></h1>
+    <p>One part experiment in serverless functions, one part a place to keep track of the various things I want to bookmark and share. Maybe in the future a place I can automatically send emails from.</p>
+    </section>
+
+    <ul>
+    {% for link in bookmarks %}
+    {% if link.url and link.pageTitle %}
+        <li>
+            <h2><a href="{{link.url}}">{{link.pageTitle}}</a></h2>
+            Saved on {{ link.time | date: "%b %d, %Y"  }}
+            {% if link.description != "" %}
+                <p>{{link.description}}</p>
+            {% endif %}
+        </li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+</body>
+</html>

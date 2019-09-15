@@ -20,11 +20,11 @@ async function getDetails(url) {
   return data
 }
 
+
 async function saveBookmark(details) {
   const data = {
     data: details
   };
-  console.log(data);
   return adminClient.query(q.Create(q.Collection("links"), data))
     .then((response) => {
       console.log("success", response)
@@ -47,13 +47,11 @@ async function saveBookmark(details) {
 exports.handler = async function(event, context) {
   try {
     const url = event.queryStringParameters.url;
+
     const details = await getDetails(url);
     
-    const saved = saveBookmark({url, ...details})
-
-    console.log(saved);
-
-    return { statusCode: 200, body: JSON.stringify(saved) }
+    const savedResponse = saveBookmark({url, ...details})
+    return savedResponse
   } catch (err) {
     return { statusCode: 500, body: "lambda failure code!" };
   }
