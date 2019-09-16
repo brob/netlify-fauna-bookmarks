@@ -31,6 +31,9 @@ function mapBookmarks(data) {
 }
 
 module.exports = async function() {
+
+    console.log(process.env.CONTEXT);
+
     const data = mapBookmarks(await getBookmarks());
 
     return data
