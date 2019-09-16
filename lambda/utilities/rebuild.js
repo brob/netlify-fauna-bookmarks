@@ -1,4 +1,6 @@
-const rebuildSite = function() {
+const rp = require('request-promise');
+
+const rebuildSite = async function() {
     var options = {
         method: 'POST',
         uri: 'https://api.netlify.com/build_hooks/5d7fa6175504dfd43377688c',
