@@ -28,7 +28,7 @@ exports.handler = async function(event, context) {
 
     if (savedResponse.statusCode === 200) {
 
-      if (process.env.CONTEXT === 'production') rebuildSite();
+      if (process.env.CONTEXT === 'production') await rebuildSite();
 
       return { statusCode: 200, body: savedResponse.body }
     } else {

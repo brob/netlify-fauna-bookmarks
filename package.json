@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx netlify-lambda build lambda --config ./webpack.functions.js && npx eleventy"
+    "build": "npx netlify-lambda build lambda --config ./webpack.functions.js && npx eleventy",
+    "serve": "npx netlify-lambda build lambda --config ./webpack.functions.js && npx eleventy --serve"
   },
   "keywords": [],
   "author": "",
