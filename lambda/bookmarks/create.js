@@ -34,7 +34,6 @@ const saveBookmark = async function(details) {
         body: JSON.stringify(response)
       }
     }).catch((error) => {
-      console.log("error", error)
       /* Error! return the error with statusCode 400 */
       return  {
         statusCode: 400,
