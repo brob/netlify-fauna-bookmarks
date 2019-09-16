@@ -6,8 +6,15 @@ exports.handler = async function(event, context) {
     const details = await getDetails(url);
     
     const savedResponse = await saveBookmark({url, ...details});
+    console.log(savedResponse);
 
-    return { statusCode: 200, body: savedResponse.body }
+    if (savedResponse.statusCode === 200) {
+      return { statusCode: 200, body: savedResponse.body }
+    } else {
+      return savedResponse
+    }
+
+    
   } catch (err) {
     return { statusCode: 500, body: `Error: ${err}` };
   }
