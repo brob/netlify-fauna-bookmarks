@@ -1,5 +1,5 @@
 import { getDetails, saveBookmark } from "./bookmarks/create";
-
+import { rebuildSite } from "./utilities/rebuild";
 const rp = require('request-promise');
 
 
@@ -15,21 +15,8 @@ exports.handler = async function(event, context) {
     console.log(savedResponse);
 
     if (savedResponse.statusCode === 200) {
-
-        var options = {
-          method: 'POST',
-          uri: 'https://api.netlify.com/build_hooks/5d7fa6175504dfd43377688c',
-          body: {},
-          json: true      
-        };
+      rebuildSite();
       
-        console.log('Rebuilding the site ... ');
-        const returned = await rp(options).then(function(res) {
-          console.log('Successfully hit webhook', res);
-        }).catch(function(err) {
-          console.log('Error:', err);
-        });
-
       return { statusCode: 200, body: savedResponse.body }
     } else {
       return savedResponse
