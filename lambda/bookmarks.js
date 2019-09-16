@@ -18,6 +18,8 @@ const rebuildSite = function() {
 
 exports.handler = async function(event, context) {
   try {
+    if (event.queryStringParameters.apiKey != process.env.API_KEY) throw "Not Authorized";
+
     const url = event.queryStringParameters.url;
     const details = await getDetails(url);
     
@@ -26,7 +28,7 @@ exports.handler = async function(event, context) {
 
     if (savedResponse.statusCode === 200) {
 
-      rebuildSite();
+      if (process.env.CONTEXT === 'production') rebuildSite();
 
       return { statusCode: 200, body: savedResponse.body }
     } else {
