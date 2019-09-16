@@ -36,6 +36,6 @@ module.exports = async function() {
 
     const data = mapBookmarks(await getBookmarks());
 
-    return data
+    return data.reverse()
     
 }

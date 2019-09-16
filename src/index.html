@@ -18,10 +18,10 @@
     {% for link in bookmarks %}
     {% if link.url and link.pageTitle %}
         <li>
-            <h2><a href="{{link.url}}">{{link.pageTitle}}</a></h2>
+            <h2><a href="{{ link.url }}">{{ link.pageTitle }}</a></h2>
             Saved on {{ link.time | date: "%b %d, %Y"  }}
             {% if link.description != "" %}
-                <p>{{link.description}}</p>
+                <p>{{ link.description }}</p>
             {% endif %}
         </li>
     {% endif %}
