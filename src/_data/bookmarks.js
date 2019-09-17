@@ -13,11 +13,10 @@ function getBookmarks() {
     ))
     .then((response) => {
         const linkRefs = response.data;
-        console.log(response.data);
         const getAllLinksDataQuery = linkRefs.map((ref) => {
             return q.Get(ref)
         })
-    
+
         return adminClient.query(getAllLinksDataQuery).then(ret => {
             return ret
         })
