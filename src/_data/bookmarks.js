@@ -6,10 +6,14 @@ var adminClient = new faunadb.Client({
 });
 
 function getBookmarks() {
-    return adminClient.query(q.Paginate(q.Match(q.Ref("indexes/all_links"))))
+    return adminClient.query(q.Paginate(
+        q.Match(
+            q.Ref("indexes/all_links")
+        )
+    ))
     .then((response) => {
         const linkRefs = response.data;
-    
+        console.log(response.data);
         const getAllLinksDataQuery = linkRefs.map((ref) => {
             return q.Get(ref)
         })
@@ -31,9 +35,6 @@ function mapBookmarks(data) {
 }
 
 module.exports = async function() {
-
-    console.log(process.env.CONTEXT);
-
     const data = mapBookmarks(await getBookmarks());
 
     return data.reverse()
