@@ -12,7 +12,7 @@ exports.handler = async function(event, context) {
     const savedResponse = await saveBookmark({url, ...details});
 
     if (savedResponse.statusCode === 200) {
-      rebuildSite();
+      await rebuildSite();
       return { statusCode: 200, body: savedResponse.body }
     } else {
       return savedResponse
