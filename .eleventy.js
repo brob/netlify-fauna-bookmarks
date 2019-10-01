@@ -5,10 +5,7 @@ module.exports = function(config) {
         passthroughFileCopy: true,
         dir: {
           input: "src",
-          output: "app",
-          includes: "templates",
-          data: "_data"
-        }
+          output: "app"        }
     }
 
 }

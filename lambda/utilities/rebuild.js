@@ -15,6 +15,8 @@ const rebuildSite = async function() {
       }).catch(function(err) {
         console.log('Error:', err);
       });
+
+      return returned
 }
 
 export { rebuildSite }
