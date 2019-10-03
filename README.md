@@ -6,6 +6,9 @@ This repository corresponds to an article on creating your very own bookmarking 
 
 If you want this for your own, there are a few things you'll need to do, first, deploy this repo to Netlify with the button below (what this does: Forks the repository and then deploys that forked repository to your Netlify account)
 
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/brob/netlify-fauna-bookmarks)
+
+
 ### Requirements
 
 * A FaunaDB account
