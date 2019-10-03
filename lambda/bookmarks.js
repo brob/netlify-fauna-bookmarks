@@ -8,6 +8,7 @@ exports.handler = async function(event, context) {
     if (event.queryStringParameters.apiKey != process.env.API_KEY) throw "Not Authorized";
 
     const url = event.queryStringParameters.url;
+    
     const details = await getDetails(url);
     const savedResponse = await saveBookmark({url, ...details});
 
