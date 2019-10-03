@@ -33,7 +33,7 @@ The Lambda Function lives in `/lambda`. The main functions doing the heavy lifti
 
 ## Setting up a shortcut
 
-In the article, I discuss setting up an iOS Shortcut to post to our netlify function (which should live at http://siteurl.com/.netlify/functions/bookmarks).
+In the article, I discuss setting up an iOS Shortcut to post to our netlify function (which should live at `http://siteurl.com/.netlify/functions/bookmarks`).
 
 To add a bookmark you send a request with a query parameter structured like this:
 
