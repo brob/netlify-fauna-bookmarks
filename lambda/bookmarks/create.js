@@ -28,6 +28,7 @@ const saveBookmark = async function(details) {
   return adminClient.query(q.Create(q.Collection("links"), data))
     .then((response) => {
       /* Success! return the response with statusCode 200 */
+      console.log("success", response)
       return {
         statusCode: 200,
         body: JSON.stringify(response)
