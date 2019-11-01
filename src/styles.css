@@ -28,7 +28,7 @@ h1 {
 h2 {
     line-height: 1.4em;
 }
-.intro {
+.intro, .search {
     list-style: none;
     padding: 0;
     width: 95vw;
@@ -36,7 +36,7 @@ h2 {
     margin-left: auto;
     margin-right: auto;
 }
-li, .intro, .pagination__link, .pagination a  {
+.intro, .pagination__link, .bookmarks li, .pagination a  {
     display: block;
     background-color: white;
     box-shadow: 0 0 2px #999;
@@ -83,4 +83,36 @@ li, .intro, .pagination__link, .pagination a  {
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
+}
+.search {
+    position: relative;
+}
+.search-field {
+    width: 100%;
+    display: block;
+    padding: .5rem 1rem;
+    position: relative;
+    z-index: 2;
+}
+.searchResults {
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 1px;
+    width: calc(100% - 2px);
+    background-color: white;
+    box-shadow: 0 0 2px #999;
+    z-index: 0;
+}
+.searchMarks {
+    padding: 0;
+}
+.searchResults__title {
+    padding: .5rem 1rem;
+}
+.searchMarks li {
+    padding: .5rem 1rem;
+    list-style: none;
+}
+.searchMarks li + li {
+    border-top: 1px solid #ccc;
 }

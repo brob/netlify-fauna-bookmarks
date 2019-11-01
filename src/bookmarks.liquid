@@ -1,0 +1,8 @@
+---
+permalink: "bookmarks.json"
+---
+[
+    {% for link in bookmarks %}
+        {{ link }}{% if forloop.last %}{% else %},{% endif %}
+    {% endfor %}
+]

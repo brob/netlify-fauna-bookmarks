@@ -20,7 +20,14 @@ pagination:
     <p>One part experiment in serverless functions, one part a place to keep track of the various things I want to bookmark and share. Maybe in the future a place I can automatically send emails from.</p>
     </section>
 
+    <div class="search">
+        <label for="searchApp">Search</label>
+        <input type="text" id="searchApp" class="search-field">
+        <div id="results" class="search-results"></div>
+    </div>
+
     {% include pagination.html %}
+
 
     <ul class="bookmarks">
     {% for link in pagination.items %}
@@ -37,5 +44,8 @@ pagination:
     </ul>
 
     {% include pagination.html %}
+
+
+    <script src="/js/script.js"></script>
 </body>
 </html>
