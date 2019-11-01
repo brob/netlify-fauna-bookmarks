@@ -1,0 +1,9 @@
+<nav class="pagination">
+    <a class="pagination__link" {% if pagination.previousPageHref %}href="{{ pagination.previousPageHref }}"{% endif %}>Previous Page</a>
+    <div class="pages">
+        {% for page in pagination.hrefs %}
+            <a class="{% if pagination.pageNumber == forloop.index0 %}active{% endif %}" href="{{ page }}">{{ forloop.index }}</a>
+        {% endfor %}
+    </div>
+    <a class="pagination__link" {% if pagination.nextPageHref %}href="{{ pagination.nextPageHref }}"{% endif %}>Next Page</a>
+</nav>
