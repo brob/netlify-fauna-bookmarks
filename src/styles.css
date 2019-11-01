@@ -89,10 +89,15 @@ h2 {
 .search {
     position: relative;
 }
+.search label {
+    font-size: 1.25rem;
+    color: #333;
+}
 .search-field {
+    font-size: 1.25rem;
     width: 100%;
     display: block;
-    padding: .5rem 1rem;
+    padding: 1rem 1rem;
     position: relative;
     z-index: 2;
 }
