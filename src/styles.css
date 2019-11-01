@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body > * + * {
-    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 html {
     font-size: 18px;
