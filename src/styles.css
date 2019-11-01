@@ -101,6 +101,12 @@ h2 {
     position: relative;
     z-index: 2;
 }
+.search-results {
+    display: none;
+}
+.search:focus-within .search-results {
+    display: block;
+}
 .searchResults {
     position: absolute;
     top: calc(100% - 1px);
