@@ -13,8 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^0.9.0",
+    "@sanity/client": "^2.1.0",
     "cheerio": "^1.0.0-rc.3",
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "faunadb": "^2.8.0",
     "netlify-lambda": "^1.6.3",
     "request": "^2.88.0",
