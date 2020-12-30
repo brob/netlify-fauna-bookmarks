@@ -1,11 +1,13 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
-var faunadb = require('faunadb'),
-    q = faunadb.query;
 
-var adminClient = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
-});
+const sanityClient = require('@sanity/client')
+const client = sanityClient({
+  projectId: process.env.SANITY_PROJECT,
+  dataset: 'production',
+  token: process.env.SANITY_KEY, // or leave blank to be anonymous user
+  useCdn: true // `false` if you want to ensure fresh data
+})
 
 
 const getDetails = async function(url) {
@@ -23,21 +25,22 @@ const getDetails = async function(url) {
 
 const saveBookmark = async function(details) {
   const data = {
-    data: details
+    ...details,
+    _type: "bookmark"
   };
-  return adminClient.query(q.Create(q.Collection("links"), data))
-    .then((response) => {
-      /* Success! return the response with statusCode 200 */
-      console.log("success", response)
+  return client.create(data)
+    .then(res => {
+      console.log("success", res)
       return {
         statusCode: 200,
-        body: JSON.stringify(response)
+        body: JSON.stringify(res)
       }
-    }).catch((error) => {
-      /* Error! return the error with statusCode 400 */
-      return  {
+    })
+    .catch(err => {
+      console.log(err)
+      return {
         statusCode: 400,
-        body: JSON.stringify(error)
+        body: JSON.stringify(err)
       }
     })
 }
