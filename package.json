@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^0.9.0",
+    "@11ty/eleventy": "^1.0.2",
     "cheerio": "^1.0.0-rc.3",
     "dotenv": "^8.1.0",
     "faunadb": "^2.8.0",
